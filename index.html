@@ -11,24 +11,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
+/* ===== LOGO IMAGE ===== */
+.logo-img-wrap{display:flex;align-items:center}
+.nav-logo-img{height:46px;width:auto;transition:filter 0.3s;filter:drop-shadow(0 0 8px rgba(77,207,255,0.3))}
+.nav-logo-img:hover{filter:drop-shadow(0 0 16px rgba(77,207,255,0.6))}
+
 /* ===== RESET & VARIABLES ===== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#0E1E3F;
-  --dark:#070D1E;
-  --darker:#040810;
-  --gold:#C9A84C;
-  --gold-light:#E8C97A;
-  --gold-dim:rgba(201,168,76,0.12);
-  --gold-border:rgba(201,168,76,0.22);
-  --white:#F0F4FF;
-  --muted:#7A88A0;
-  --card-bg:rgba(14,30,63,0.45);
+  --navy:#150B38;
+  --dark:#0C0620;
+  --darker:#070312;
+  --gold:#4DCFFF;
+  --gold-light:#8EEAFF;
+  --gold-dim:rgba(77,207,255,0.12);
+  --gold-border:rgba(77,207,255,0.22);
+  --lime:#AAFF00;
+  --purple:#6B2FBE;
+  --white:#EEF2FF;
+  --muted:#7A80AA;
+  --card-bg:rgba(21,11,56,0.55);
   --font-display:'Orbitron',monospace;
   --font-heading:'Syne',sans-serif;
   --font-body:'DM Sans',sans-serif;
-  --glow:0 0 30px rgba(201,168,76,0.25);
-  --glow-strong:0 0 60px rgba(201,168,76,0.45);
+  --glow:0 0 30px rgba(77,207,255,0.28);
+  --glow-strong:0 0 65px rgba(77,207,255,0.55);
   --ease:cubic-bezier(0.4,0,0.2,1);
   --r:4px;
   --max:1200px;
@@ -67,8 +74,8 @@ section{padding:7rem 0}
   100%{background-position:300% center}
 }
 @keyframes pulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.5)}
-  50%{box-shadow:0 0 0 12px rgba(201,168,76,0)}
+  0%,100%{box-shadow:0 0 0 0 rgba(77,207,255,0.5)}
+  50%{box-shadow:0 0 0 12px rgba(77,207,255,0)}
 }
 @keyframes float{
   0%,100%{transform:translateY(0)}
@@ -107,7 +114,7 @@ nav{
   padding:1.4rem 0;transition:all 0.35s var(--ease)
 }
 nav.scrolled{
-  background:rgba(4,8,16,0.96);
+  background:rgba(7,3,18,0.97);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--gold-border);
   padding:0.85rem 0
@@ -153,7 +160,7 @@ nav.scrolled{
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .mobile-nav{
   display:none;position:fixed;inset:0;
-  background:rgba(4,8,16,0.99);z-index:99;
+  background:rgba(7,3,18,0.99);z-index:99;
   flex-direction:column;align-items:center;justify-content:center;gap:2.5rem
 }
 .mobile-nav.open{display:flex}
@@ -176,20 +183,20 @@ nav.scrolled{
 .hero-bg{
   position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 75% 65% at 68% 45%,rgba(14,30,63,0.9) 0%,transparent 65%),
-    radial-gradient(ellipse 45% 35% at 15% 85%,rgba(201,168,76,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse 75% 65% at 68% 45%,rgba(21,11,56,0.9) 0%,transparent 65%),
+    radial-gradient(ellipse 45% 35% at 15% 85%,rgba(107,47,190,0.12) 0%,transparent 55%),
     linear-gradient(175deg,var(--darker) 0%,var(--dark) 100%)
 }
 .hero-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(201,168,76,0.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(201,168,76,0.035) 1px,transparent 1px);
+    linear-gradient(rgba(77,207,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(77,207,255,0.04) 1px,transparent 1px);
   background-size:65px 65px
 }
 .hero-scan{
   position:absolute;left:0;right:0;height:1.5px;
-  background:linear-gradient(90deg,transparent 0%,rgba(201,168,76,0.35) 50%,transparent 100%);
+  background:linear-gradient(90deg,transparent 0%,rgba(77,207,255,0.4) 50%,transparent 100%);
   animation:scanline 7s linear infinite
 }
 .hero-content{position:relative;z-index:2;max-width:820px}
@@ -202,7 +209,7 @@ nav.scrolled{
   background:var(--gold-dim)
 }
 .hero-badge-dot{
-  width:6px;height:6px;background:var(--gold);
+  width:6px;height:6px;background:var(--lime);
   border-radius:50%;animation:pulse 2.2s infinite
 }
 h1.hero-h1{
@@ -211,7 +218,7 @@ h1.hero-h1{
   margin-bottom:1.5rem;letter-spacing:-0.025em
 }
 .hero-h1 .shimmer{
-  background:linear-gradient(120deg,var(--gold) 0%,var(--gold-light) 40%,var(--gold) 60%,var(--gold-light) 100%);
+  background:linear-gradient(120deg,var(--gold) 0%,#AAFF00 35%,var(--gold-light) 55%,var(--gold) 80%,#AAFF00 100%);
   background-size:250% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   animation:shimmer 3.5s linear infinite
@@ -249,12 +256,12 @@ h1.hero-h1{
 @media(max-width:768px){.hero-stats{display:none};section{padding:4.5rem 0}}
 
 /* ===== MARQUEE STRIP ===== */
-.strip{background:var(--gold);padding:1.4rem 0;overflow:hidden}
+.strip{background:linear-gradient(90deg,var(--purple),#3A1880,var(--purple));border-top:2px solid var(--lime);border-bottom:2px solid var(--lime);padding:1.4rem 0;overflow:hidden}
 .strip-inner{display:flex;gap:4rem;animation:marquee 22s linear infinite;width:max-content;white-space:nowrap}
 .strip-item{
   font-family:var(--font-display);font-size:0.6rem;
   letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--darker);font-weight:700;
+  color:var(--lime);font-weight:700;
   display:flex;align-items:center;gap:1rem
 }
 .strip-item::after{content:'◆';font-size:0.35rem;opacity:0.6}
@@ -281,7 +288,7 @@ h1.hero-h1{
   background:var(--gold);transform:scaleX(0);transform-origin:left;
   transition:transform 0.35s var(--ease)
 }
-.svc:hover{background:rgba(14,30,63,0.35)}
+.svc:hover{background:rgba(21,11,56,0.55)}
 .svc:hover::before{transform:scaleX(1)}
 .svc-icon{
   width:46px;height:46px;background:var(--gold-dim);
@@ -290,7 +297,7 @@ h1.hero-h1{
   font-size:1.3rem;margin-bottom:1.5rem;
   transition:all 0.3s
 }
-.svc:hover .svc-icon{background:rgba(201,168,76,0.2);box-shadow:var(--glow)}
+.svc:hover .svc-icon{background:rgba(77,207,255,0.15);box-shadow:var(--glow),0 0 12px rgba(170,255,0,0.15)}
 .svc h3{font-size:1.2rem;margin-bottom:0.7rem;color:var(--white)}
 .svc p{font-size:0.88rem;margin-bottom:1.5rem}
 .svc-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
@@ -303,7 +310,7 @@ h1.hero-h1{
   content:'RIFT';position:absolute;right:-4rem;top:50%;
   transform:translateY(-50%);
   font-family:var(--font-display);font-size:22rem;font-weight:900;
-  color:rgba(201,168,76,0.025);pointer-events:none;letter-spacing:0.05em;line-height:1
+  color:rgba(77,207,255,0.04);pointer-events:none;letter-spacing:0.05em;line-height:1
 }
 .phases{
   display:grid;grid-template-columns:repeat(4,1fr);
@@ -316,7 +323,7 @@ h1.hero-h1{
   transition:background 0.3s;position:relative
 }
 .phase:last-child{border-right:none}
-.phase:hover{background:rgba(14,30,63,0.45)}
+.phase:hover{background:rgba(21,11,56,0.65)}
 @media(max-width:900px){
   .phase:nth-child(2){border-right:none}
   .phase:nth-child(1),.phase:nth-child(2){border-bottom:1px solid var(--gold-border)}
@@ -352,12 +359,12 @@ h1.hero-h1{
 }
 .about-frame-bg{
   position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(201,168,76,0.09) 0%,transparent 65%),
+  background:radial-gradient(ellipse at center,rgba(107,47,190,0.25) 0%,rgba(77,207,255,0.06) 50%,transparent 70%),
   linear-gradient(135deg,var(--navy),var(--dark))
 }
 .about-mono{
   position:relative;font-family:var(--font-display);
-  font-size:7.5rem;font-weight:900;color:rgba(201,168,76,0.12);
+  font-size:7.5rem;font-weight:900;color:rgba(77,207,255,0.12);
   letter-spacing:0.1em;text-align:center
 }
 .about-tag{
@@ -428,7 +435,7 @@ h1.hero-h1{
 .prod:hover{border-color:var(--gold);box-shadow:var(--glow);transform:translateY(-4px)}
 .prod-badge{
   display:inline-block;font-family:var(--font-display);font-size:0.52rem;
-  letter-spacing:0.2em;color:var(--darker);background:var(--gold);
+  letter-spacing:0.2em;color:var(--white);background:linear-gradient(90deg,var(--purple),#4B1FA0);
   padding:0.28rem 0.65rem;border-radius:2px;text-transform:uppercase;
   margin-bottom:1.2rem;align-self:flex-start
 }
@@ -452,7 +459,7 @@ h1.hero-h1{
 #contact{background:var(--dark);position:relative;overflow:hidden}
 #contact::before{
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 55% 70% at 80% 50%,rgba(14,30,63,0.5) 0%,transparent 65%)
+  background:radial-gradient(ellipse 55% 70% at 80% 50%,rgba(21,11,56,0.7) 0%,rgba(107,47,190,0.1) 50%,transparent 70%)
 }
 .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:6rem;align-items:start}
 @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
@@ -471,7 +478,7 @@ h1.hero-h1{
   display:flex;align-items:center;justify-content:center;
   font-size:0.9rem;flex-shrink:0;transition:all 0.3s
 }
-.c-link:hover .c-icon{border-color:var(--gold);background:rgba(201,168,76,0.18)}
+.c-link:hover .c-icon{border-color:var(--gold);background:rgba(77,207,255,0.18)}
 .contact-form{
   background:var(--card-bg);border:1px solid var(--gold-border);
   border-radius:var(--r);padding:2.5rem
@@ -482,7 +489,7 @@ h1.hero-h1{
   letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:0.45rem
 }
 .fg input,.fg select,.fg textarea{
-  width:100%;background:rgba(4,8,16,0.55);
+  width:100%;background:rgba(7,3,18,0.6);
   border:1px solid var(--gold-border);border-radius:var(--r);
   padding:0.85rem 1rem;color:var(--white);
   font-family:var(--font-body);font-size:0.88rem;
@@ -525,7 +532,7 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
   border:none;border-radius:50%;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   font-size:1.3rem;z-index:200;
-  box-shadow:0 4px 22px rgba(201,168,76,0.45);
+  box-shadow:0 4px 22px rgba(77,207,255,0.4),0 0 0 2px rgba(170,255,0,0.2);
   transition:all 0.3s;animation:float 3s ease-in-out infinite
 }
 #chat-btn:hover{transform:scale(1.08);box-shadow:var(--glow-strong);animation:none}
@@ -543,7 +550,7 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
 }
 .chat-hd-l{display:flex;align-items:center;gap:0.7rem}
 .chat-av{
-  width:34px;height:34px;background:var(--gold);border-radius:50%;
+  width:34px;height:34px;background:linear-gradient(135deg,var(--purple),var(--gold));border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-family:var(--font-display);font-size:0.65rem;font-weight:700;color:var(--darker)
 }
@@ -581,13 +588,13 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
   padding:0.28rem 0.65rem;border-radius:20px;cursor:pointer;
   white-space:nowrap;transition:all 0.3s
 }
-.qr:hover{border-color:var(--gold);background:rgba(201,168,76,0.2)}
+.qr:hover{border-color:var(--gold);background:rgba(77,207,255,0.2)}
 .chat-inp{
   padding:0.9rem 1.2rem;border-top:1px solid var(--gold-border);
   display:flex;gap:0.6rem;align-items:flex-end
 }
 #ci{
-  flex:1;background:rgba(4,8,16,0.6);border:1px solid var(--gold-border);
+  flex:1;background:rgba(7,3,18,0.65);border:1px solid var(--gold-border);
   border-radius:6px;padding:0.65rem 0.9rem;color:var(--white);
   font-family:var(--font-body);font-size:0.83rem;outline:none;
   resize:none;max-height:75px;min-height:36px;transition:border-color 0.3s;line-height:1.4
@@ -604,12 +611,126 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
 /* ===== MISC ===== */
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0}
 
+/* ===== HOW IT WORKS ===== */
+#how{background:var(--dark);border-top:1px solid var(--gold-border)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:4rem;position:relative}
+@media(max-width:768px){.steps{grid-template-columns:1fr;gap:0}}
+.steps::before{
+  content:'';position:absolute;top:38px;left:calc(16.66% + 16px);right:calc(16.66% + 16px);
+  height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-border),var(--gold));
+  z-index:0
+}
+@media(max-width:768px){.steps::before{display:none}}
+.step{
+  padding:0 2.5rem 2.5rem;text-align:center;position:relative;z-index:1
+}
+.step-bubble{
+  width:76px;height:76px;border-radius:50%;
+  background:var(--darker);border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.8rem;position:relative;
+  transition:all 0.35s var(--ease)
+}
+.step:hover .step-bubble{background:var(--gold-dim);box-shadow:var(--glow)}
+.step-num{
+  font-family:var(--font-display);font-size:1.35rem;
+  font-weight:900;color:var(--gold)
+}
+.step-icon{font-size:1.6rem}
+.step h3{font-size:1.1rem;color:var(--white);margin-bottom:0.65rem}
+.step p{font-size:0.84rem;line-height:1.75;max-width:240px;margin:0 auto}
+.step-arrow{
+  position:absolute;top:38px;right:-22px;
+  font-size:1.2rem;color:var(--gold);z-index:2;
+  display:none
+}
+@media(min-width:769px){.step:not(:last-child) .step-arrow{display:block}}
+
+/* ===== NEWSLETTER ===== */
+#newsletter{
+  background:linear-gradient(135deg,#0F0730,var(--navy));border-top:1px solid var(--gold-border);
+  border-bottom:1px solid var(--gold-border);
+  position:relative;overflow:hidden
+}
+#newsletter::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(107,47,190,0.18) 0%,rgba(77,207,255,0.05) 50%,transparent 65%)
+}
+.newsletter-inner{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:5rem;align-items:center
+}
+@media(max-width:768px){.newsletter-inner{grid-template-columns:1fr;gap:2.5rem}}
+.nl-text h2{margin-bottom:0.9rem}
+.nl-text p{margin-bottom:0;max-width:420px}
+.nl-perks{display:flex;flex-direction:column;gap:0.6rem;margin-top:1.5rem}
+.nl-perk{display:flex;align-items:center;gap:0.65rem;font-size:0.83rem;color:var(--muted)}
+.nl-perk::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.nl-form{display:flex;flex-direction:column;gap:0.85rem}
+.nl-form input{
+  background:rgba(7,3,18,0.6);border:1px solid var(--gold-border);
+  border-radius:var(--r);padding:0.9rem 1.1rem;
+  color:var(--white);font-family:var(--font-body);font-size:0.88rem;
+  outline:none;transition:border-color 0.3s
+}
+.nl-form input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim)}
+.nl-form input::placeholder{color:var(--muted)}
+.nl-note{font-size:0.72rem;color:var(--muted);text-align:center}
+
+/* ===== SOCIAL LINKS ===== */
+.social-links{display:flex;gap:0.75rem;margin-top:1.4rem;flex-wrap:wrap}
+.social-link{
+  width:38px;height:38px;background:var(--gold-dim);
+  border:1px solid var(--gold-border);border-radius:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;transition:all 0.3s;color:var(--muted);
+  text-decoration:none
+}
+.social-link:hover{background:rgba(77,207,255,0.2);border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.footer-socials{display:flex;gap:0.6rem;margin-top:1rem}
+.footer-socials a{
+  width:32px;height:32px;background:var(--gold-dim);
+  border:1px solid var(--gold-border);border-radius:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;transition:all 0.3s;
+  text-decoration:none
+}
+.footer-socials a:hover{border-color:var(--gold);background:rgba(77,207,255,0.2);transform:translateY(-2px)}
+
+/* ===== STICKY BOTTOM BAR ===== */
+#sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:150;
+  background:rgba(7,3,18,0.98);backdrop-filter:blur(18px);
+  border-top:1px solid var(--gold-border);
+  padding:0.9rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  transform:translateY(100%);transition:transform 0.45s var(--ease)
+}
+#sticky-bar.visible{transform:translateY(0)}
+.sticky-text{display:flex;flex-direction:column}
+.sticky-text strong{
+  font-family:var(--font-heading);font-size:0.92rem;
+  font-weight:700;color:var(--white);line-height:1.2
+}
+.sticky-text span{font-size:0.72rem;color:var(--muted);margin-top:0.1rem}
+.sticky-actions{display:flex;gap:0.75rem;align-items:center;flex-shrink:0}
+.sticky-close{
+  background:none;border:none;color:var(--muted);
+  cursor:pointer;font-size:1rem;line-height:1;
+  padding:0.3rem;transition:color 0.3s
+}
+.sticky-close:hover{color:var(--gold)}
+@media(max-width:500px){
+  .sticky-text span{display:none}
+  #sticky-bar{padding:0.75rem 1.2rem}
+}
+
 /* ===== COUNTERS ===== */
-#counters{background:var(--navy);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:4.5rem 0}
+#counters{background:linear-gradient(135deg,var(--navy),#0F0730);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:4.5rem 0}
 .counters-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gold-border)}
 @media(max-width:700px){.counters-grid{grid-template-columns:repeat(2,1fr)}}
 .counter-cell{background:var(--navy);padding:2.5rem 2rem;text-align:center;transition:background 0.3s}
-.counter-cell:hover{background:rgba(14,30,63,0.6)}
+.counter-cell:hover{background:rgba(21,11,56,0.8)}
 .counter-val{font-family:var(--font-display);font-size:2.8rem;font-weight:900;color:var(--gold);line-height:1;display:block}
 .counter-lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.5rem;display:block}
 
@@ -654,7 +775,7 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
 .cc-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
 .cc-list li{font-size:0.78rem;color:var(--muted);display:flex;gap:0.5rem;align-items:flex-start}
 .cc-list li::before{flex-shrink:0;margin-top:0.1rem}
-.cc-list.diy li::before{content:'✓';color:#4ade80}
+.cc-list.diy li::before{content:'✓';color:var(--lime)}
 .cc-list.dfy li::before{content:'★';color:var(--gold)}
 .compare-panel{display:none}
 .compare-panel.active{display:block;animation:fadeUp 0.4s var(--ease) both}
@@ -679,8 +800,11 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
 <nav id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#hero" class="logo" data-glitch="REALITY RIFT">REALITY <span>RIFT</span></a>
+      <a href="#hero" class="logo-img-wrap">
+        <img src="assets/logo.png" alt="R.I.F.T Marketing" class="nav-logo-img">
+      </a>
       <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#rift">The Method</a></li>
         <li><a href="#quiz">Brand Audit</a></li>
@@ -698,6 +822,8 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
 
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mob">
+  <img src="assets/logo.png" alt="R.I.F.T Marketing" style="width:90px;margin-bottom:1rem">
+  <a href="#how" onclick="closeMob()">How It Works</a>
   <a href="#services" onclick="closeMob()">Services</a>
   <a href="#rift" onclick="closeMob()">The Method</a>
   <a href="#quiz" onclick="closeMob()">Brand Audit</a>
@@ -789,6 +915,45 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
         <span class="counter-val" data-target="3" data-suffix="x">0</span>
         <span class="counter-lbl">Core Services Offered</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how">
+  <div class="container">
+    <div class="sec-header reveal" style="text-align:center;max-width:580px;margin:0 auto">
+      <span class="label">The Process</span>
+      <h2>How It <span class="gold">Works</span></h2>
+      <p>Three steps from "I'm interested" to seeing real movement in your brand. No long onboarding, no confusion about what happens next.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-bubble">
+          <span class="step-icon">📞</span>
+        </div>
+        <div class="step-arrow">→</div>
+        <h3>1. Book a Free Strategy Call</h3>
+        <p>Fill out the contact form or email Cody directly. No pitch deck, no pressure — just a real conversation about where your brand is and where you want it to go.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="step-bubble">
+          <span class="step-icon">🗺</span>
+        </div>
+        <div class="step-arrow">→</div>
+        <h3>2. We Build Your R.I.F.T Plan</h3>
+        <p>Based on your brand audit, we map out a custom R.I.F.T execution plan — pinpointing your phase, your priority actions, and a clear 30-day roadmap to first results.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="step-bubble">
+          <span class="step-icon">🚀</span>
+        </div>
+        <h3>3. We Execute. You Grow.</h3>
+        <p>We get to work — content, funnels, systems, whatever your phase calls for. You stay focused on building your business while we handle the brand engine.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3.5rem" class="reveal">
+      <a href="#contact" class="btn-primary">→ Start the Conversation</a>
     </div>
   </div>
 </section>
@@ -957,7 +1122,7 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
     <div class="about-grid">
       <div class="about-frame reveal">
         <div class="about-frame-bg"></div>
-        <div class="about-mono">C.T.</div>
+        <img src="assets/logo.png" alt="R.I.F.T Marketing" style="width:75%;position:relative;z-index:1;filter:drop-shadow(0 0 30px rgba(77,207,255,0.35))">
         <div class="corner tl"></div>
         <div class="corner tr"></div>
         <div class="corner bl"></div>
@@ -1234,6 +1399,33 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
   </div>
 </section>
 
+<!-- ===== NEWSLETTER ===== -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="nl-text reveal">
+        <span class="label">Weekly Intel</span>
+        <h2>Brand Growth Tips,<br><span class="gold">Straight to Your Inbox</span></h2>
+        <p>No fluff, no filler. Every week, practical brand-building strategies you can actually use — whether you're DIY or working with us.</p>
+        <div class="nl-perks">
+          <div class="nl-perk">R.I.F.T Method breakdowns and real examples</div>
+          <div class="nl-perk">Content frameworks that work right now</div>
+          <div class="nl-perk">Early access to new digital products</div>
+          <div class="nl-perk">One email per week — unsubscribe anytime</div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="nl-form">
+          <input type="text" id="nl-name" placeholder="Your first name">
+          <input type="email" id="nl-email" placeholder="Your email address">
+          <button class="btn-primary" style="justify-content:center" onclick="subNewsletter()">→ Join the List</button>
+          <p class="nl-note">Powered by beehiiv · Zero spam, ever.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
@@ -1255,6 +1447,13 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
             <div class="c-icon">🌐</div>
             realityriftdesign.pro
           </a>
+        </div>
+        <div class="social-links">
+          <a href="#" target="_blank" class="social-link" title="Instagram">📸</a>
+          <a href="#" target="_blank" class="social-link" title="TikTok">🎵</a>
+          <a href="#" target="_blank" class="social-link" title="LinkedIn">💼</a>
+          <a href="#" target="_blank" class="social-link" title="X / Twitter">𝕏</a>
+          <a href="#" target="_blank" class="social-link" title="YouTube">▶</a>
         </div>
       </div>
       <div class="contact-form reveal reveal-d1">
@@ -1293,8 +1492,15 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#hero" class="logo">REALITY <span>RIFT</span></a>
+        <a href="#hero"><img src="assets/logo.png" alt="R.I.F.T Marketing" style="width:90px;margin-bottom:0.8rem"></a>
         <p>Digital marketing for founders who are done playing small. The R.I.F.T Method — built to grow brands that last.</p>
+        <div class="footer-socials">
+          <a href="#" target="_blank" title="Instagram">📸</a>
+          <a href="#" target="_blank" title="TikTok">🎵</a>
+          <a href="#" target="_blank" title="LinkedIn">💼</a>
+          <a href="#" target="_blank" title="X / Twitter">𝕏</a>
+          <a href="#" target="_blank" title="YouTube">▶</a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
@@ -1328,6 +1534,19 @@ footer{background:var(--darker);border-top:1px solid var(--gold-border);padding:
     </div>
   </div>
 </footer>
+
+<!-- ===== STICKY BOTTOM BAR ===== -->
+<div id="sticky-bar">
+  <div class="sticky-text">
+    <strong>Ready to build something real?</strong>
+    <span>Book a free strategy call — no pitch, no pressure.</span>
+  </div>
+  <div class="sticky-actions">
+    <a href="#contact" class="btn-primary" onclick="closeSticky()">→ Book a Free Call</a>
+    <a href="https://realityrift.gumroad.com" target="_blank" class="btn-outline">Browse Products</a>
+    <button class="sticky-close" onclick="closeSticky()" aria-label="Close">✕</button>
+  </div>
+</div>
 
 <!-- ===== CHATBOT ===== -->
 <button id="chat-btn" onclick="toggleChat()" aria-label="Chat with us">💬</button>
@@ -1496,7 +1715,37 @@ document.getElementById('ci').addEventListener('input', function(){
 });
 
 // ================================================
-// ANIMATED COUNTERS
+// STICKY BOTTOM BAR
+// ================================================
+let stickyDismissed = false;
+function closeSticky() {
+  stickyDismissed = true;
+  document.getElementById('sticky-bar').classList.remove('visible');
+  document.getElementById('chat-btn').style.bottom = '2rem';
+  document.getElementById('chat-win').style.bottom = '5.75rem';
+}
+window.addEventListener('scroll', () => {
+  if (stickyDismissed) return;
+  const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  if (scrolled > 0.25) {
+    document.getElementById('sticky-bar').classList.add('visible');
+    document.getElementById('chat-btn').style.bottom = '6.5rem';
+    document.getElementById('chat-win').style.bottom = '10.25rem';
+  }
+});
+
+// ================================================
+// NEWSLETTER SIGNUP
+// ================================================
+function subNewsletter() {
+  const name = document.getElementById('nl-name').value.trim();
+  const email = document.getElementById('nl-email').value.trim();
+  if (!name || !email) { alert('Please enter your name and email.'); return; }
+  const body = `Newsletter Signup%0D%0A%0D%0AName: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0APlease add me to the Reality Rift weekly newsletter.`;
+  window.location.href = `mailto:cody@realityriftdesign.pro?subject=Newsletter Signup — ${encodeURIComponent(name)}&body=${body}`;
+}
+
+// ================================================
 // ================================================
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
